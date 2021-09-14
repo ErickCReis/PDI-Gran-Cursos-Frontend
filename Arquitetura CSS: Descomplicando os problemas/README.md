@@ -12,3 +12,9 @@ Protótipo do site: https://www.figma.com/file/0gMF5BPgplPYqQA6Om1T1sk9/alura-bo
 
 - Padrão para nomear as classes de CSS;
 - Metodologia BEM.
+
+### Aula 3: Estilização das Receitas
+
+- Organização e estrutura de arquivos .css;
+- Separação de responsabilidades;
+- Criar e manter arquivos menores.
