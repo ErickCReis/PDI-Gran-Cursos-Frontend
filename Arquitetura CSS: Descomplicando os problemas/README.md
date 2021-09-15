@@ -18,3 +18,9 @@ Protótipo do site: https://www.figma.com/file/0gMF5BPgplPYqQA6Om1T1sk9/alura-bo
 - Organização e estrutura de arquivos .css;
 - Separação de responsabilidades;
 - Criar e manter arquivos menores.
+
+### Aula 4: Estilização do Quem Somos
+
+- Imagens ilustrativas devem estar referenciadas em nossos arquivos `.css`
+- Boas práticas com importação de imagens;
+- A manter as estilizações nos arquivos de estilo.
