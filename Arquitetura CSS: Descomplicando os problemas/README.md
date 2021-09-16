@@ -24,3 +24,8 @@ Protótipo do site: https://www.figma.com/file/0gMF5BPgplPYqQA6Om1T1sk9/alura-bo
 - Imagens ilustrativas devem estar referenciadas em nossos arquivos `.css`
 - Boas práticas com importação de imagens;
 - A manter as estilizações nos arquivos de estilo.
+
+### Aula 5: Estilização do Rodapé e Responsividade do site
+
+- Site responsivo;
+- Adaptação do site a diferentes tamanhos de tela.
