@@ -19,3 +19,9 @@
 
 - Que é possível haver um grid dentro de outro.
 - Calcular largura.
+
+### Aula 4: Estilizando o cabeçalho
+
+- Centralizar conteúdo.
+- Adicionar bordas.
+- Aplicar estilo no hover do mouse.
