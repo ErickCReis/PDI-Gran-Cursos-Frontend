@@ -12,3 +12,9 @@
 - O que é e para que serve mobile-first;
 - Como funciona o initial-scale dentro do conteúdo do Viewport;
 - Como declarar e chamar variáveis CSS;
+
+### Aula 3: Particularidades de telas
+
+- Utilizar as unidades de viewport;
+- Identificar a diferença entre unidades absolutas e relativas;
+- Analisar as limitações físicas de dispositivos;
