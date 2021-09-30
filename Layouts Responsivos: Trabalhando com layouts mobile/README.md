@@ -24,3 +24,11 @@
 - Como lidar com as imagens do layout que recebemos;
 - Tags e atributos que têm mais função de semântica do que estilo;
 - A importância de escrever um código semântico;
+
+### Aula 5: Evoluindo mobile ao desktop
+
+- Criar estilizações diferentes para diversos dispositivos com media queries;
+- Adaptar estrutura e conteúdo para layouts diferentes;
+- Progredir de um layout mobile até um layout para desktop;
+
+[_\*Media Queries for Standard Devices_](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/)
