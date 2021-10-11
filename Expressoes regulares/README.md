@@ -32,3 +32,10 @@
 - `\b` é uma âncora que seleciona um _word boundary_, isso é o início ou fim da palavra.
 - `^` é uma âncora que seleciona o início da string alvo.
 - `$` é uma âncora que seleciona o fim do alvo.
+
+### Aula 4: Trabalhando com grupos
+
+- Declaramos um grupo com `()`.
+- Podemos ter grupos e subgrupos.
+- Um grupo é retornado na hora de executar, são úteis para selecionar uma parte do _match_.
+- Através do `?:`, dizemos que não queremos ver esse grupo na resposta
