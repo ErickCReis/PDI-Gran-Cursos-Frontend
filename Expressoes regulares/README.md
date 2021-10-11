@@ -25,3 +25,10 @@
 - Conhecemos todos os quantifiers como `?`, `+`, `*` e `{n}`.
 - `\s` significa whitespace e é um atalho para `[ \t\r\n\f]`.
 - `\w` significa word char e é uma atalho para `[A-Za-z0-9_]`.
+
+### Aula 3: Encontrando a posição certa com âncora
+
+- Existem âncoras predefinidas que selecionam uma posição dentro do alvo.
+- `\b` é uma âncora que seleciona um _word boundary_, isso é o início ou fim da palavra.
+- `^` é uma âncora que seleciona o início da string alvo.
+- `$` é uma âncora que seleciona o fim do alvo.
