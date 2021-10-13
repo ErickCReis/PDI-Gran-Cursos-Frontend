@@ -39,3 +39,8 @@
 - Podemos ter grupos e subgrupos.
 - Um grupo é retornado na hora de executar, são úteis para selecionar uma parte do _match_.
 - Através do `?:`, dizemos que não queremos ver esse grupo na resposta
+
+### Aula 5: Ganancioso ou preguiçoso
+
+- _Quantifiers_ são gananciosos por padrão e que podemos utilizar um `?` logo após o quantifier, deixando-o preguiçoso.
+- Podemos referenciar o texto de um grupo dentro da regex, aonde `n` é o número do grupo.
