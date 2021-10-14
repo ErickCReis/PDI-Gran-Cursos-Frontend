@@ -44,3 +44,12 @@
 
 - _Quantifiers_ são gananciosos por padrão e que podemos utilizar um `?` logo após o quantifier, deixando-o preguiçoso.
 - Podemos referenciar o texto de um grupo dentro da regex, aonde `n` é o número do grupo.
+
+### Aula 6: Usando regex nas diversas linguagens
+
+- [x] JavaScript
+- [ ] Ruby
+- [x] PHP
+- [ ] Python
+- [ ] C#
+- [ ] Java
