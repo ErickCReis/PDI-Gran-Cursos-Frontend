@@ -31,3 +31,7 @@
 - Outra estrutura de regex para a pré validação do CEP
 - Como fazer uma requisição para a API da ViaCEP
 - Preencher outros campos do formulário com a resposta da API da ViaCEP
+
+### Aula 6: Aplicação de máscara
+
+- Como adicionar máscara monetária para o campo de preço.
