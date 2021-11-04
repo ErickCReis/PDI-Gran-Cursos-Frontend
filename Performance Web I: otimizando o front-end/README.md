@@ -22,3 +22,7 @@
 ### Aula 5: Sprites
 
 - [SVG-Sprite](https://github.com/svg-sprite/svg-sprite/blob/main/docs/command-line.md)
+
+### Aula 6: Inline de recursos
+
+- [Gulp Inline Source](https://github.com/fmal/gulp-inline-source)
