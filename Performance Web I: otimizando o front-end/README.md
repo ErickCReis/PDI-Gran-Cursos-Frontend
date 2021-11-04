@@ -18,3 +18,7 @@
 - [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
 
 ### Aula 4: Concatenações e Trade-offs
+
+### Aula 5: Sprites
+
+- [SVG-Sprite](https://github.com/svg-sprite/svg-sprite/blob/main/docs/command-line.md)
