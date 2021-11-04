@@ -26,3 +26,5 @@
 ### Aula 6: Inline de recursos
 
 - [Gulp Inline Source](https://github.com/fmal/gulp-inline-source)
+
+### Aula 7: Paralelizando requests
