@@ -16,3 +16,5 @@
 
 - [WebPageTest](http://www.webpagetest.org/)
 - [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+
+### Aula 4: Concatenações e Trade-offs
