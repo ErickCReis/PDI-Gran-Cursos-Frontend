@@ -64,10 +64,11 @@ gulp.task('imagemin', function () {
     .pipe(gulp.dest('dist/assets/img'));
 });
 
+
 /* Revisão de arquivos */
 gulp.task('rev', function () {
   return gulp
-    .src(['dist/**/*.{css,js}'])
+    .src(['dist/**/*.{css,js,jpg,jpeg,png,svg}'])
     .pipe($.rev())
     .pipe($.revdel())
     .pipe(gulp.dest('dist/'))

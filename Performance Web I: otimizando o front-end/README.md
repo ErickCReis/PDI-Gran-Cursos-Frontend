@@ -28,3 +28,5 @@
 - [Gulp Inline Source](https://github.com/fmal/gulp-inline-source)
 
 ### Aula 7: Paralelizando requests
+
+### Aula 8: Cache HTTP
