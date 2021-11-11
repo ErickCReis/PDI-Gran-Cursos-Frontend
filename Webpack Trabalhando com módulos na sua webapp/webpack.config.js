@@ -1,23 +1,34 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   entry: './app/src/js/app.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'app/dist'),
-    clean: true
+    clean: true,
   },
   module: {
-    rules: [
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-    ]
+    rules: [{ test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] }],
+  },
+  optimization: {
+    minimizer: [
+      '...',
+      new CssMinimizerPlugin(),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './app/src/app.html',
       filename: 'app.html',
-      hash: true
-    })
-  ]
-}
+      hash: true,
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+  ],
+};
