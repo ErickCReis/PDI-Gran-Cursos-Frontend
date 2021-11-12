@@ -20,7 +20,7 @@
 - Papel e configuração do css-loader
 - Papel e configuração do style-loader
 
-## Aula 04: Build de produção e boas práticas
+### Aula 04: Build de produção e boas práticas
 
 - Se devemos carregar o CSS no JS ou através da tag style
 - Carregamento de css como módulo diretamente da pasta node_modules
@@ -28,3 +28,9 @@
 - Minificação de arquivos CSS
 - Como otimizar ainda mais módulos escritos em JavaScript
 - Code splitting a lazy loading
+
+### Aula 05: Webpack Dev Server
+
+- Instalação do WebPaclk Dev Server
+- Configuração do servidor
+- Detalhes sobre o seu funcionamento que tornam o desenvolvedor mais produtivo

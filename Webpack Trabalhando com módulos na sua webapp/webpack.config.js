@@ -22,8 +22,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './app/src/app.html',
-      filename: 'app.html',
+      template: './app/src/index.html',
       hash: true,
     }),
     new MiniCssExtractPlugin({
@@ -31,4 +30,10 @@ module.exports = {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ],
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
+    port: 3000,
+  }
 };
