@@ -1,7 +1,7 @@
 const { contextBridge, ipcRenderer, shell } = require('electron');
 const process = require('process');
 
-contextBridge.exposeInMainWorld('plataform', {
+contextBridge.exposeInMainWorld('api', {
   ipcRenderer: {
     on: async (channel, listener) => ipcRenderer.on(channel, listener),
     once: async (channel, listener) => ipcRenderer.once(channel, listener),
@@ -9,7 +9,7 @@ contextBridge.exposeInMainWorld('plataform', {
   },
 
   shell: {
-    openExternal: async (url) => shell.openExternal(url),
+    openExternal: async (url) =>  shell.openExternal(url),
   },
 
   process: {

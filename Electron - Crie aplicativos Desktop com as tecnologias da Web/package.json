@@ -1,14 +1,25 @@
 {
   "name": "alura-timer",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "license": "MIT",
   "scripts": {
-    "start": "electron ."
+    "postinstall": "cd electron && yarn && cd ..",
+    "webpack:build": "webpack --mode production",
+    "webpack:serve": "webpack serve --mode development",
+    "electron:dev": "export NODE_ENV=dev && electron ./electron",
+    "electron:prod": "export NODE_ENV=prod && electron ./electron",
+    "start": "yarn webpack:serve & yarn electron:dev",
+    "build": "yarn webpack:build && yarn electron:prod"
   },
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "luxon": "^2.1.1"
+  },
   "devDependencies": {
-    "electron": "^16.0.0"
+    "copy-webpack-plugin": "^10.0.0",
+    "electron": "^16.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.64.2",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
   }
 }

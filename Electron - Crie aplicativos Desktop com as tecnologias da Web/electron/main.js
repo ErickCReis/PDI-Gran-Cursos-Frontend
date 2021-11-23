@@ -1,11 +1,10 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
-const path = require('path')
+const path = require('path');
 
 app.on('ready', () => onReady());
 app.on('window-all-closed', () => onAllClosed());
 
 function onReady() {
-  console.log('ready');
   const mainWindow = new BrowserWindow({
     width: 600,
     height: 400,
@@ -14,11 +13,20 @@ function onReady() {
     },
   });
 
-  mainWindow.loadFile('app/index.html');
+  loadResource(mainWindow, 'index.html');
 }
 
 function onAllClosed() {
   if (process.platform !== 'darwin') app.quit();
+}
+
+function loadResource(window, resouceName) {
+  if (process.env.NODE_ENV === 'dev') {
+    window.webContents.openDevTools();
+    window.loadURL('http://localhost:3000/' + resouceName);
+  } else {
+    window.loadFile('bin/' + resouceName);
+  }
 }
 
 let sobreWindow = null;
@@ -38,7 +46,7 @@ ipcMain.on('abrir-janela-sobre', () => {
     },
   });
 
-  sobreWindow.loadFile('app/sobre.html');
+  loadResource(sobreWindow, 'sobre.html');
 
   sobreWindow.on('closed', () => {
     sobreWindow = null;

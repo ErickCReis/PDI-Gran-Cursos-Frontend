@@ -19,3 +19,9 @@
 - Algumas propriedades de janelas
 - Lidar com o fechamento de janelas
 - Interagir com o Shell do sistema operacional
+
+### Aula 03: Implementando o timer
+
+- Executar e parar um timer
+- Criar nosso próprio módulo
+- Formas diferentes de importar scripts em index.html
