@@ -25,3 +25,9 @@
 - Executar e parar um timer
 - Criar nosso próprio módulo
 - Formas diferentes de importar scripts em index.html
+
+### Aula 04: Salvando os dados do curso
+
+- A criar um módulo responsável pela persistência de nossos dados
+- Como utilizar a biblioteca jsonfile para criar JSON's
+- A possibilidade de utilizar módulos nativos do Node, como o fs

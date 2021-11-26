@@ -12,7 +12,8 @@ module.exports = {
       el.textContent = tempo.toFormat('HH:mm:ss');
     }, 1000);
   },
-  parar() {
+  parar(curso) {
     clearInterval(timer);
+    window.api.ipcRenderer.send('tempo-parado', curso, tempo.toFormat('HH:mm:ss'));
   }
 };
