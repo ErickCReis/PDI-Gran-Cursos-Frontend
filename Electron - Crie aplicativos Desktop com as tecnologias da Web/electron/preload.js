@@ -18,6 +18,6 @@ contextBridge.exposeInMainWorld('api', {
   },
 
   data: {
-    buscaDados: (curso) => data.buscaDados(curso),
+    buscaDadosCurso: (curso) => data.buscaDadosCurso(curso),
   }
 });

@@ -1,9 +1,12 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, Tray, Menu } = require('electron');
 const path = require('path');
 const data = require('./data');
+const templateGenerator = require('./template');
 
 app.on('ready', () => onReady());
 app.on('window-all-closed', () => onAllClosed());
+
+let tray = null;
 
 function onReady() {
   const mainWindow = new BrowserWindow({
@@ -14,6 +17,7 @@ function onReady() {
     },
   });
 
+  loadTray(mainWindow);
   loadResource(mainWindow, 'index.html');
 }
 
@@ -24,10 +28,32 @@ function onAllClosed() {
 function loadResource(window, resouceName) {
   if (process.env.NODE_ENV === 'dev') {
     window.webContents.openDevTools();
-    window.loadURL('http://localhost:3000/' + resouceName);
+    window.loadURL(getResource(resouceName));
   } else {
-    window.loadFile('bin/' + resouceName);
+    window.loadFile(getResource(resouceName));
   }
+}
+
+function getResource(resourceName) {
+  if (process.env.NODE_ENV === 'dev') {
+    return 'http://localhost:3000/' + resourceName;
+  } else {
+    return path.join(__dirname, 'bin', resourceName);
+  }
+}
+
+function loadTray(mainWindow) {
+  tray = new Tray(path.join(__dirname, 'assets', 'icon-tray.png'));
+
+  const action = (curso) => {
+    mainWindow.send('curso-trocado', curso);
+  };
+  const template = templateGenerator.geraTrayTemplate(action);
+  const contextMenu = Menu.buildFromTemplate(template);
+
+  tray.setContextMenu(contextMenu);
+
+
 }
 
 let sobreWindow = null;
@@ -60,4 +86,4 @@ ipcMain.on('fechar-janela-sobre', () => {
 
 ipcMain.on('tempo-parado', (_, curso, tempo) => {
   data.salvaDados(curso, tempo);
-})
+});

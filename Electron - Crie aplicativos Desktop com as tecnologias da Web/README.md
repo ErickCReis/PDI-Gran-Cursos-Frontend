@@ -31,3 +31,9 @@
 - A criar um módulo responsável pela persistência de nossos dados
 - Como utilizar a biblioteca jsonfile para criar JSON's
 - A possibilidade de utilizar módulos nativos do Node, como o fs
+
+### Aula 05 - Adicionando a aplicação ao Tray
+
+- Utilizar o submódulo Tray
+- Criar menus para o Tray
+- Comunicar-se do processo principal para um processo de render.

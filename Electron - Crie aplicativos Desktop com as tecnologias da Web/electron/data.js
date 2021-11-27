@@ -1,5 +1,6 @@
 const jsonfile = require('jsonfile-promised');
 const fs = require('fs');
+const { log } = require('console');
 
 module.exports = {
   salvaDados(curso, tempo) {
@@ -31,9 +32,13 @@ module.exports = {
       .then(() => console.log('Arquivo criado!'))
       .catch((err) => console.error(err));
   },
-  buscaDados(curso) {
+  buscaDadosCurso(curso) {
     const caminhoCurso = `${__dirname}/data/${curso}.json`;
 
     return jsonfile.readFile(caminhoCurso)
+  },
+  buscaCursos() {
+    const arquivos = fs.readdirSync(`${__dirname}/data`);
+    return arquivos.map((arquivo) => arquivo.replace(/.json$/, ''));
   }
 };

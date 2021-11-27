@@ -6,7 +6,7 @@ const tempo = document.querySelector('.tempo');
 const curso = document.querySelector('.curso');
 
 window.onload = () => {
-  window.api.data.buscaDados(curso.textContent).then((dados) => {
+  window.api.data.buscaDadosCurso(curso.textContent).then((dados) => {
     tempo.textContent = dados.tempo;
   });
 };
@@ -23,3 +23,10 @@ botaoPlay.addEventListener('click', () => {
   play = !play;
   botaoPlay.src = imgs[0];
 });
+
+window.api.ipcRenderer.on('curso-trocado', (_, novoCurso) => {
+  curso.textContent = novoCurso;
+  window.api.data.buscaDadosCurso(novoCurso).then((dados) => {
+    tempo.textContent = dados.tempo;
+  });
+})
