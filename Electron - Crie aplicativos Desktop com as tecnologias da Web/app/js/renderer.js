@@ -4,12 +4,21 @@ const linkSobre = document.querySelector('#link-sobre');
 const botaoPlay = document.querySelector('.botao-play');
 const tempo = document.querySelector('.tempo');
 const curso = document.querySelector('.curso');
+const botaoAdicionar = document.querySelector('.botao-adicionar');
+const campoAdicionar = document.querySelector('.campo-adicionar');
 
 window.onload = () => {
   window.api.data.buscaDadosCurso(curso.textContent).then((dados) => {
     tempo.textContent = dados.tempo;
   });
 };
+
+window.api.ipcRenderer.on('curso-trocado', (_, novoCurso) => {
+  curso.textContent = novoCurso;
+  window.api.data.buscaDadosCurso(novoCurso).then((dados) => {
+    tempo.textContent = dados.tempo;
+  });
+});
 
 linkSobre.addEventListener('click', async () => {
   window.api.ipcRenderer.send('abrir-janela-sobre');
@@ -24,9 +33,11 @@ botaoPlay.addEventListener('click', () => {
   botaoPlay.src = imgs[0];
 });
 
-window.api.ipcRenderer.on('curso-trocado', (_, novoCurso) => {
+botaoAdicionar.addEventListener('click', () => {
+  const novoCurso = campoAdicionar.value;
   curso.textContent = novoCurso;
-  window.api.data.buscaDadosCurso(novoCurso).then((dados) => {
-    tempo.textContent = dados.tempo;
-  });
-})
+  tempo.textContent = '00:00:00';
+  campoAdicionar.value = '';
+
+  window.api.ipcRenderer.send('curso-adicionado', novoCurso);
+});

@@ -37,3 +37,9 @@
 - Utilizar o submódulo Tray
 - Criar menus para o Tray
 - Comunicar-se do processo principal para um processo de render.
+
+### Aula 06 - Um formulário para adicionar cursos
+
+- A criar um formulário para novos dados dos cursos
+- A utilizar ainda mais a biblioteca Jsonfile
+- Como modificar nosso Traybar dinamicamente

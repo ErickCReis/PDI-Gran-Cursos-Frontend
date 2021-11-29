@@ -6,10 +6,11 @@ const templateGenerator = require('./template');
 app.on('ready', () => onReady());
 app.on('window-all-closed', () => onAllClosed());
 
+let mainWindow = null;
 let tray = null;
 
 function onReady() {
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 600,
     height: 400,
     webPreferences: {
@@ -42,18 +43,24 @@ function getResource(resourceName) {
   }
 }
 
-function loadTray(mainWindow) {
-  tray = new Tray(path.join(__dirname, 'assets', 'icon-tray.png'));
+function loadTray(mainWindow, curso) {
+  if (!tray) {
+    tray = new Tray(path.join(__dirname, 'assets', 'icon-tray.png'));
+  }
 
-  const action = (curso) => {
-    mainWindow.send('curso-trocado', curso);
+  const action = (nomeCurso) => {
+    mainWindow.send('curso-trocado', nomeCurso);
   };
-  const template = templateGenerator.geraTrayTemplate(action);
+
+  let template;
+  if (curso) {
+    template = templateGenerator.adicionaCursoNoTray(curso, action);
+  } else {
+    template = templateGenerator.geraTrayTemplate(action);
+  }
   const contextMenu = Menu.buildFromTemplate(template);
 
   tray.setContextMenu(contextMenu);
-
-
 }
 
 let sobreWindow = null;
@@ -86,4 +93,8 @@ ipcMain.on('fechar-janela-sobre', () => {
 
 ipcMain.on('tempo-parado', (_, curso, tempo) => {
   data.salvaDados(curso, tempo);
+});
+
+ipcMain.on('curso-adicionado', (_, novoCurso) => {
+  loadTray(mainWindow, novoCurso);
 });
