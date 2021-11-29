@@ -18,7 +18,8 @@ function onReady() {
     },
   });
 
-  loadTray(mainWindow);
+  loadTray();
+  loadMenuPricipal();
   loadResource(mainWindow, 'index.html');
 }
 
@@ -43,7 +44,7 @@ function getResource(resourceName) {
   }
 }
 
-function loadTray(mainWindow, curso) {
+function loadTray(curso) {
   if (!tray) {
     tray = new Tray(path.join(__dirname, 'assets', 'icon-tray.png'));
   }
@@ -61,6 +62,12 @@ function loadTray(mainWindow, curso) {
   const contextMenu = Menu.buildFromTemplate(template);
 
   tray.setContextMenu(contextMenu);
+}
+
+function loadMenuPricipal() {
+  const templateMenu = templateGenerator.geraMenuPrincipalTemplate(app.getName());
+  const menuPrincipal = Menu.buildFromTemplate(templateMenu);
+  Menu.setApplicationMenu(menuPrincipal);
 }
 
 let sobreWindow = null;

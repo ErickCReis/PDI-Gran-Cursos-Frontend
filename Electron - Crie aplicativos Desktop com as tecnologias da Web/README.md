@@ -43,3 +43,11 @@
 - A criar um formulário para novos dados dos cursos
 - A utilizar ainda mais a biblioteca Jsonfile
 - Como modificar nosso Traybar dinamicamente
+
+### Aula 07 - O menu principal da aplicação
+
+- O menu principal da aplicação
+- Detalhes específicos do MacOS na criação do menu principal da aplicação
+- Como criar submenus e detectar ações de click
+- Utilizando Roles para implementar funcionalidades prontas do sistema operacional
+- Como emitir eventos do Processo Principal para o próprio Processo Principal

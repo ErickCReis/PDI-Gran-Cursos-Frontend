@@ -1,10 +1,8 @@
+const { ipcMain } = require('electron');
 const data = require('./data');
 
 module.exports = {
-  template: [
-    { label: 'Cursos' },
-    { type: 'separator' },
-  ],
+  trayTemplate: [{ label: 'Cursos' }, { type: 'separator' }],
   geraTrayTemplate(action) {
     const cursos = data.buscaCursos();
 
@@ -12,13 +10,13 @@ module.exports = {
       const menuItem = {
         label: curso,
         type: 'radio',
-        click: () => action(curso)
+        click: () => action(curso),
       };
 
-      this.template.push(menuItem);
+      this.trayTemplate.push(menuItem);
     });
 
-    return this.template;
+    return this.trayTemplate;
   },
   adicionaCursoNoTray(curso, action) {
     const menuItem = {
@@ -28,8 +26,38 @@ module.exports = {
       click: () => action(curso),
     };
 
-    this.template.push(menuItem);
+    this.trayTemplate.push(menuItem);
 
-    return this.template;
+    return this.trayTemplate;
   },
-}
+  geraMenuPrincipalTemplate(appName) {
+    let templateMenu = [
+      {
+        role: 'viewMenu',
+        submenu: [{ role: 'reload' }, { role: 'toggledevtools' }],
+      },
+      {
+        role: 'windowMenu',
+        submenu: [{ role: 'minimize' }, { role: 'close' }],
+      },
+      {
+        label: 'Sobre',
+        submenu: [
+          {
+            label: 'Sobre o Alura Timer',
+            click: () => ipcMain.emit('abrir-janela-sobre'),
+          },
+        ],
+      },
+    ];
+
+    if (process.platform === 'darwin') {
+      templateMenu.unshift({
+        label: appName,
+        submenu: [{ label: 'Estou rodando no Mac!' }],
+      });
+    }
+
+    return templateMenu;
+  },
+};
