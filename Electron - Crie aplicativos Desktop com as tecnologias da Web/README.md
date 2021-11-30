@@ -51,3 +51,9 @@
 - Como criar submenus e detectar ações de click
 - Utilizando Roles para implementar funcionalidades prontas do sistema operacional
 - Como emitir eventos do Processo Principal para o próprio Processo Principal
+
+### Aula 08 - Adicionando atalhos a aplicação
+
+- Adicionado atalhos para os itens do Menu
+- Alterando atalhos pré-existentes no Menu
+- Atalhos globais que funcionam mesmo que a aplicação não esteja focada.

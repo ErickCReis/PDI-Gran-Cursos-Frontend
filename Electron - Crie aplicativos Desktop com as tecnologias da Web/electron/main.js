@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Tray, Menu } = require('electron');
+const { app, BrowserWindow, ipcMain, Tray, Menu, globalShortcut } = require('electron');
 const path = require('path');
 const data = require('./data');
 const templateGenerator = require('./template');
@@ -20,6 +20,7 @@ function onReady() {
 
   loadTray();
   loadMenuPricipal();
+  loadGlobalShortcut();
   loadResource(mainWindow, 'index.html');
 }
 
@@ -68,6 +69,12 @@ function loadMenuPricipal() {
   const templateMenu = templateGenerator.geraMenuPrincipalTemplate(app.getName());
   const menuPrincipal = Menu.buildFromTemplate(templateMenu);
   Menu.setApplicationMenu(menuPrincipal);
+}
+
+function loadGlobalShortcut() {
+  globalShortcut.register('CommandOrControl+Shift+S', () => {
+    mainWindow.send('atalho-iniciar-parar');
+  })
 }
 
 let sobreWindow = null;

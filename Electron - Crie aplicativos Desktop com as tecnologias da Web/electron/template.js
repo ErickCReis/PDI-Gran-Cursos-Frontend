@@ -46,6 +46,7 @@ module.exports = {
           {
             label: 'Sobre o Alura Timer',
             click: () => ipcMain.emit('abrir-janela-sobre'),
+            accelerator: 'CommandOrControl+I',
           },
         ],
       },

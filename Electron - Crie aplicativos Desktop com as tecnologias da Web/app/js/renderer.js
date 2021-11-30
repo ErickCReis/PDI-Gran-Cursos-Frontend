@@ -20,6 +20,10 @@ window.api.ipcRenderer.on('curso-trocado', (_, novoCurso) => {
   });
 });
 
+window.api.ipcRenderer.on('atalho-iniciar-parar', () => {
+  botaoPlay.dispatchEvent(new MouseEvent('click'));
+});
+
 linkSobre.addEventListener('click', async () => {
   window.api.ipcRenderer.send('abrir-janela-sobre');
 });
@@ -31,6 +35,11 @@ botaoPlay.addEventListener('click', () => {
   play ? timer.parar(curso.textContent) : timer.iniciar(tempo);
   play = !play;
   botaoPlay.src = imgs[0];
+
+  new Notification('Alura Timer', {
+    body: `O curso ${curso.textContent} foi ${play ? 'iniciado' : 'parado'}`,
+    icon: play ? 'img/play-button.png' : 'img/stop-button.png',
+  });
 });
 
 botaoAdicionar.addEventListener('click', () => {
