@@ -11,6 +11,7 @@ let tray = null;
 
 function onReady() {
   mainWindow = new BrowserWindow({
+    icon: path.join(__dirname, 'assets', 'icon.png'),
     width: 600,
     height: 400,
     webPreferences: {
@@ -85,6 +86,7 @@ ipcMain.on('abrir-janela-sobre', () => {
   }
 
   sobreWindow = new BrowserWindow({
+    icon: path.join(__dirname, 'assets', 'icon.png'),
     width: 300,
     height: 220,
     alwaysOnTop: true,
@@ -110,5 +112,5 @@ ipcMain.on('tempo-parado', (_, curso, tempo) => {
 });
 
 ipcMain.on('curso-adicionado', (_, novoCurso) => {
-  loadTray(mainWindow, novoCurso);
+  loadTray(novoCurso);
 });

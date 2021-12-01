@@ -1,6 +1,5 @@
 const jsonfile = require('jsonfile-promised');
 const fs = require('fs');
-const { log } = require('console');
 
 module.exports = {
   salvaDados(curso, tempo) {

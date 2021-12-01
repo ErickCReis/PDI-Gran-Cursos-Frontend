@@ -14,9 +14,13 @@ window.onload = () => {
 };
 
 window.api.ipcRenderer.on('curso-trocado', (_, novoCurso) => {
+  timer.parar(curso.textContent);
   curso.textContent = novoCurso;
   window.api.data.buscaDadosCurso(novoCurso).then((dados) => {
     tempo.textContent = dados.tempo;
+  }).catch(() => {
+    console.log('O curso ainda não foi registrado');
+    tempo.textContent = '00:00:00';
   });
 });
 
@@ -44,6 +48,11 @@ botaoPlay.addEventListener('click', () => {
 
 botaoAdicionar.addEventListener('click', () => {
   const novoCurso = campoAdicionar.value;
+  if (!novoCurso) {
+    console.log('Não é possível adicionar um curso vazio');
+    return;
+  }
+
   curso.textContent = novoCurso;
   tempo.textContent = '00:00:00';
   campoAdicionar.value = '';

@@ -57,3 +57,9 @@
 - Adicionado atalhos para os itens do Menu
 - Alterando atalhos pré-existentes no Menu
 - Atalhos globais que funcionam mesmo que a aplicação não esteja focada.
+
+### Aula 09 - Distribuição para os três Sistemas Operacionais
+
+- Correção de alguns bugs da aplicação
+- Gerar um executável para cada sistema operacional com o electron-packager
+- Gerar um executável para cada sistema operacional com o ícone específico do sistema
